@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    margin-top: 20px;
     display: inline-flex;
     background-color: darkgray
 }
@@ -9,13 +10,57 @@ body {
     width: 200px;
     height: 600px;
     margin-right: 250px;
-    background-color: grey
-    
+    background-color: grey;
+    padding: 20px
 }
 .canvas {
     border: 1px black solid;
-    width: 400px;
-    height: 600px;
-    background-color: white
-    
+    width: 500px;
+    height: 500px;
+    background-color: white   
+}
+table
+{
+border-collapse: separate;
+border-spacing: 15px 20px;
+}
+tr{
+    margin: 20px;
+}
+td{
+    border: 1px black solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px
+}
+#blue{
+    background-color: blue
+}
+#red{
+    background-color: red;
+}
+#yellow{
+    background-color: yellow;
+}
+#black{
+    background-color: black;
+}
+#green{
+    background-color: green;
+}
+#brown{
+    background-color: brown;
+}
+.border{
+    border: 1px black solid;
+    margin-bottom: 10px;
+}
+i{
+    background-color: white;
+    border: 1px black solid;
+    width: 40px;
+    height: 40px;
+}
+.size{
+
 }

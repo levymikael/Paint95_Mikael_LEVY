@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Paint</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="toolbox">
-        
+        <table>
+            <caption>Color Pallet</caption>
+            <tbody>
+            <tr>
+                <td id="blue" title="blue"></td>
+                <td id="red" title="red"></td>
+            </tr>
+            <tr>
+                <td id="yellow" title="yellow"></td>
+                <td id="black" title="black"></td>
+            </tr>
+            <tr>
+                <td id="green" title="green"></td>
+                <td id="brown" title="brown"></td>
+            </tr>
+        </tbody>
+        </table>
+        <div class="border"></div>
+<i class="fas fa-eraser" title="eraser"></i>
+<div class="size"> canvas size:
+Height <input type="number" id="height">
+width <input type="number" id="width">
+</div>
     </div>
 
     <div class="canvas">
@@ -17,4 +42,5 @@
     </div>
     <script src="js/main.js"></script>
 </body>
+
 </html>
