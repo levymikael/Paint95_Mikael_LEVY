@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    display: inline-flex;
+    background-color: darkgray
+}
+
+.toolbox {
+    border: 1px black solid;
+    width: 200px;
+    height: 600px;
+    margin-right: 250px;
+    background-color: grey
+    
+}
+.canvas {
+    border: 1px black solid;
+    width: 400px;
+    height: 600px;
+    background-color: white
+    
+}
