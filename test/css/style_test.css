@@ -2,7 +2,8 @@ body {
     margin: 0;
     margin-top: 20px;
     display: inline-flex;
-    background-color: darkgray
+    background-color: darkgray;
+    position: relative
 }
 
 .toolbox {
@@ -13,58 +14,80 @@ body {
     background-color: grey;
     padding: 20px
 }
+
 #canvas {
     border: 1px black solid;
     width: 500px;
     height: 500px;
-    background-color: white   
+    background-color: white;
+    position:relative
 }
-table
-{
-border-collapse: separate;
-border-spacing: 15px 20px;
+
+table {
+    border-collapse: separate;
+    border-spacing: 15px 20px;
 }
-tr{
+
+tr {
     margin: 20px;
 }
-td{
+
+td {
     border: 1px black solid;
     width: 40px;
     height: 40px;
     border-radius: 8px
 }
-#blue{
+
+#blue {
     background-color: blue
 }
-#red{
+
+#red {
     background-color: red;
 }
-#yellow{
+
+#yellow {
     background-color: yellow;
 }
-#black{
+
+#black {
     background-color: black;
 }
-#green{
+
+#green {
     background-color: green;
 }
-#brown{
+
+#brown {
     background-color: brown;
 }
-.border{
+
+.border {
     border: 1px black solid;
     margin-bottom: 10px;
 }
-.fa-eraser{
+
+.fa-eraser {
     width: 40px;
     height: 40px;
 }
-i{
+
+i {
     background-color: white;
     border: 1px black solid;
-    
 }
-input{
+
+input {
     width: 40px;
     height: 40px;
+}
+
+.dot-wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    background-color: black;
+    height: 50px;
+    width: 50px
 }
