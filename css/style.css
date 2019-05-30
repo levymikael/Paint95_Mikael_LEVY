@@ -12,7 +12,9 @@ body {
     height: 600px;
     margin-right: 250px;
     background-color: grey;
-    padding: 20px
+    padding: 20px;
+    display: flex;
+    flex-direction: column
 }
 
 #canvas {
@@ -38,11 +40,9 @@ tr {
     height: 40px;
     border-radius: 8px
 }
-td {
-   
+.pallet{
     width: 40px;
     height: 40px;
-
 }
 
 #blue {
@@ -71,22 +71,20 @@ td {
 
 .border {
     border: 1px black solid;
-    margin-bottom: 10px;
-}
-
-.fa-eraser {
-    width: 40px;
-    height: 40px;
+    margin: 10px;
 }
 
 i {
     background-color: white;
-    border: 1px black solid;
+    height: fit-content;
+    widows: auto;
+    /* border: 1px black solid; */
 }
-
+.features div{
+    margin: 5px
+}
 input {
     width: 40px;
-    height: 40px;
 }
 #clear_All{
     text-align: center
