@@ -21,6 +21,31 @@ dotSize = document.getElementsByClassName("brush_sizes");
 for (var i = 0; i < dotSize.length; i++) {
   dotSize[i].addEventListener("click", (e) => dotSize = e.target.id);
 }
+//Eraser size modifier
+Paint.EraserSize = function (e) {
+  var newDiv = document.createElement("div");
+  newDiv.style.backgroundColor = "white";
+  newDiv.style.position = "absolute";
+  newDiv.style.height = "10px";
+  newDiv.style.width = "10px";
+  newDiv.style.height = EraserSize;
+  newDiv.style.width = EraserSize;
+  newDiv.style.left = e.clientX - canvas.offsetLeft + 'px';
+  newDiv.style.top = e.clientY - canvas.offsetTop + 'px';
+  canvas.appendChild(newDiv);
+};
+
+Paint.eraser = function (e) {
+  if (e.which === 1) {
+    Paint.EraserSize(e);
+  }
+}
+canvas.addEventListener("mousemove", Paint.eraser);
+
+EraserSize = document.getElementsByClassName("eraser");
+for (var i = 0; i < EraserSize.length; i++) {
+  EraserSize[i].addEventListener("click", (e) => EraserSize = e.target.id);
+}
 
 //dot drawing
 Paint.divCreation = function (e) {
@@ -39,10 +64,11 @@ Paint.divCreation = function (e) {
 
 Paint.draw = function (e) {
   if (e.which === 1) {
-    Paint.divCreation(e)
+    Paint.divCreation(e);
   }
 }
 canvas.addEventListener("mousemove", Paint.draw);
+
 
 // Color selection
 color = document.getElementsByClassName("color");
@@ -58,3 +84,25 @@ Paint.clear = function () {
   }
 }
 document.getElementById("clear_screen").addEventListener('click', Paint.clear);
+
+Paint.save = function () {
+  var paint = document.getElementById("canvas");
+  var PaintLeft = paint.getBoundingClientRect().left;
+  var PaintTop = paint.getBoundingClientRect().top;
+  var paintObj = {};
+  paintObj["name"] = document.getElementById("paint-title").innerHTML;
+  pizzaObj["allLines"] = [];
+  var allDraw = paint.getElementsByTagName("div");
+  for (var i = 0; i < allDraw.length; i++) {
+    var currentDraw = allDraw[i];
+    var lineObj = {};
+    lineObj["div"] = currentDraw.innerHTML;
+    lineObj["top"] = currentDraw.getBoundingClientRect().top - PaintTop;
+    lineObj["left"] = currentDraw.getBoundingClientRect().left - PaintLeft;
+    paintObj["allLines"].push(lineObj);
+  }
+  localStorage.setItem('paint', JSON.stringify(paintObj));
+  alert("Paint saved");
+};
+document.getElementById("save").addEventListener("click",Paint.save());
+
