@@ -13,7 +13,7 @@ function widthChange() {
 }
 document.getElementById("setWidth").addEventListener('click', widthChange);
 var Paint = {};
-var color = "black";
+var color = "";
 Paint.divCreation = function (e) {
   console.log(e);
   var newDiv = document.createElement("div");
