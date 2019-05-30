@@ -20,7 +20,7 @@ body {
     width: 500px;
     height: 500px;
     background-color: white;
-    position:relative;
+    position: relative;
     overflow: hidden;
 }
 
@@ -32,12 +32,17 @@ table {
 tr {
     margin: 20px;
 }
-
-td {
+.color_pallet td{
     border: 1px black solid;
     width: 40px;
     height: 40px;
     border-radius: 8px
+}
+td {
+   
+    width: 40px;
+    height: 40px;
+
 }
 
 #blue {
@@ -83,12 +88,6 @@ input {
     width: 40px;
     height: 40px;
 }
-
-.dot-wrapper {
-    position: absolute;
-    transform: translate(-50%, -50%);
-
-    background-color: black;
-    height: 50px;
-    width: 50px
+#clear_All{
+    text-align: center
 }

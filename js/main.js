@@ -20,7 +20,7 @@ document.getElementById("setWidth").addEventListener('click', Paint.widthChange)
 //dot drawing
 Paint.divCreation = function (e) {
   var newDiv = document.createElement("div");
-  if (color != "") {
+  if (color.length != 1) {
     newDiv.style.backgroundColor = color;
     newDiv.style.position = "absolute";
     newDiv.style.height = "10px";
@@ -33,14 +33,23 @@ Paint.divCreation = function (e) {
   }
 };
 
-// Color selection
-for (var i = 0; i < color.length; i++) {
-  color[i].addEventListener("click", (e) => color = e.target.id);
-}
-
 Paint.draw = function (e) {
   if (e.which === 1) {
     Paint.divCreation(e)
   }
 }
 canvas.addEventListener("mousemove", Paint.draw);
+
+// Color selection
+for (var i = 0; i < color.length; i++) {
+  color[i].addEventListener("click", (e) => color = e.target.id);
+}
+ 
+// clear All feature
+Paint.clear = function (){
+var allLines = canvas.getElementsByTagName("div");
+while(allLines.length>0){
+  canvas.removeChild(allLines[0]);
+}
+}
+document.getElementById("clear_All").addEventListener('click', Paint.clear);
