@@ -85,13 +85,22 @@ Paint.clear = function () {
 }
 document.getElementById("clear_screen").addEventListener('click', Paint.clear);
 
+Paint.New = function () {
+  var paintName = prompt("What is the name of your new draw?");
+  var paintTitle = document.getElementById("paint-title");
+  paintTitle.innerHTML = paintName;
+  Paint.clear();
+};
+
+
 Paint.save = function () {
+  Paint.New();
   var paint = document.getElementById("canvas");
   var PaintLeft = paint.getBoundingClientRect().left;
   var PaintTop = paint.getBoundingClientRect().top;
   var paintObj = {};
   paintObj["name"] = document.getElementById("paint-title").innerHTML;
-  pizzaObj["allLines"] = [];
+  paintObj["allLines"] = [];
   var allDraw = paint.getElementsByTagName("div");
   for (var i = 0; i < allDraw.length; i++) {
     var currentDraw = allDraw[i];
@@ -104,5 +113,27 @@ Paint.save = function () {
   localStorage.setItem('paint', JSON.stringify(paintObj));
   alert("Paint saved");
 };
-document.getElementById("save").addEventListener("click",Paint.save());
+document.getElementById("save").addEventListener("click", Paint.save);
 
+Paint.load = function () {
+  var loadedPaint = localStorage.getItem('paint');
+  var paintObj = JSON.parse(loadedPaint);
+  Paint.clear();
+  var paintTitle = document.getElementById("paint-title");
+  paintTitle.innerHTML = paintObj["name"];
+  var allLines = paintObj["allLines"];
+  for (var i = 0; i < allLines.length; i++) {
+    var currentLine = allLines[i];
+    Paint.placeLines(currentLine["div"],
+      currentLines["top"] + "px",
+      currentLines["left"] + "px");
+  }
+  Paint.show();
+  alert("Paint Loaded");
+};
+document.getElementById("load").addEventListener("click", Paint.load);
+
+Paint.show = function () {
+  var canvas = document.getElementById("canvas");
+  canvas.style.display = "block";
+};
