@@ -53,6 +53,7 @@ Paint.divCreation = function (e) {
   var newDiv = document.createElement("div");
   newDiv.style.backgroundColor = "black";
   //color picker or paller condition does not identies when the pickerButton has been clicked.
+  //i can retrieve the value but not replace as color.
   if (buttonPicker.checked ==true) {
     newDiv.style.backgroundColor = document.getElementById("c").value;
   } else { newDiv.style.backgroundColor = color };
