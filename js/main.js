@@ -137,3 +137,18 @@ Paint.show = function () {
   var canvas = document.getElementById("canvas");
   canvas.style.display = "block";
 };
+//Rotate buttons
+Paint.rotateRight = function (){
+  canvas.style.transform = "rotate(90deg)";
+}
+document.getElementById("rotate-right").addEventListener("click",Paint.rotateRight);
+
+Paint.rotateLeft = function (){
+  canvas.style.transform = "rotate(270deg)";
+}
+document.getElementById("rotate-left").addEventListener("click",Paint.rotateLeft);
+
+Paint.flip = function (){
+  canvas.style.transform = "rotate(180deg)";
+}
+document.getElementById("flip").addEventListener("click",Paint.flip);
