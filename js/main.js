@@ -1,5 +1,6 @@
 const canvas = document.getElementById("canvas");
 var Paint = {};
+var buttonPicker = document.getElementById("color-picker");
 
 // canvas size feature
 Paint.heightChange = function () {
@@ -22,36 +23,39 @@ for (var i = 0; i < dotSize.length; i++) {
   dotSize[i].addEventListener("click", (e) => dotSize = e.target.id);
 }
 //Eraser size modifier
-Paint.EraserSize = function (e) {
-  var newDiv = document.createElement("div");
-  newDiv.style.backgroundColor = "white";
-  newDiv.style.position = "absolute";
-  newDiv.style.height = "10px";
-  newDiv.style.width = "10px";
-  newDiv.style.height = EraserSize;
-  newDiv.style.width = EraserSize;
-  newDiv.style.left = e.clientX - canvas.offsetLeft + 'px';
-  newDiv.style.top = e.clientY - canvas.offsetTop + 'px';
-  canvas.appendChild(newDiv);
-};
+// Paint.EraserSize = function (e) {
+//   var newDiv = document.createElement("div");
+//   newDiv.style.backgroundColor = "white";
+//   newDiv.style.position = "absolute";
+//   newDiv.style.height = "5px";
+//   newDiv.style.width = "5px";
+//   newDiv.style.height = EraserSize;
+//   newDiv.style.width = EraserSize;
+//   newDiv.style.left = e.clientX - canvas.offsetLeft + 'px';
+//   newDiv.style.top = e.clientY - canvas.offsetTop + 'px';
+//   canvas.appendChild(newDiv);
+// };
 
-Paint.eraser = function (e) {
-  if (e.which === 1) {
-    Paint.EraserSize(e);
-  }
-}
-canvas.addEventListener("mousemove", Paint.eraser);
+// Paint.eraser = function (e) {
+//   if (e.which === 1) {
+//     Paint.EraserSize(e);
+//   }
+// }
+// document.getElementsByClassName("fa-2x").addEventListener("click", Paint.eraser);
 
-EraserSize = document.getElementsByClassName("eraser");
-for (var i = 0; i < EraserSize.length; i++) {
-  EraserSize[i].addEventListener("click", (e) => EraserSize = e.target.id);
-}
+// EraserSize = document.getElementsByClassName("eraser");
+// for (var i = 0; i < EraserSize.length; i++) {
+//   EraserSize[i].addEventListener("click", (e) => EraserSize = e.target.id);
+// }
 
 //dot drawing
 Paint.divCreation = function (e) {
   var newDiv = document.createElement("div");
   newDiv.style.backgroundColor = "black";
-  newDiv.style.backgroundColor = color;
+  //color picker or paller condition does not identies when the pickerButton has been clicked.
+  if (buttonPicker.checked ==true) {
+    newDiv.style.backgroundColor = document.getElementById("c").value;
+  } else { newDiv.style.backgroundColor = color };
   newDiv.style.position = "absolute";
   newDiv.style.height = "10px";
   newDiv.style.width = "10px";
@@ -92,7 +96,7 @@ Paint.New = function () {
   Paint.clear();
 };
 
-
+//Load & Save features - saves but does not load
 Paint.save = function () {
   Paint.New();
   var paint = document.getElementById("canvas");
@@ -138,17 +142,26 @@ Paint.show = function () {
   canvas.style.display = "block";
 };
 //Rotate buttons
-Paint.rotateRight = function (){
+Paint.rotateRight = function () {
   canvas.style.transform = "rotate(90deg)";
 }
-document.getElementById("rotate-right").addEventListener("click",Paint.rotateRight);
+document.getElementById("rotate-right").addEventListener("click", Paint.rotateRight);
 
-Paint.rotateLeft = function (){
+Paint.rotateLeft = function () {
   canvas.style.transform = "rotate(270deg)";
 }
-document.getElementById("rotate-left").addEventListener("click",Paint.rotateLeft);
+document.getElementById("rotate-left").addEventListener("click", Paint.rotateLeft);
 
-Paint.flip = function (){
+Paint.flip = function () {
   canvas.style.transform = "rotate(180deg)";
 }
-document.getElementById("flip").addEventListener("click",Paint.flip);
+document.getElementById("flip").addEventListener("click", Paint.flip);
+
+// Color picker/pallet:
+//cannot differentiate when pallet color is clicked rather than picker.
+document.getElementById("color-picker").addEventListener("click", function () {
+  document.getElementById("c").focus();
+  document.getElementById("c").value = "#FFCC00";
+  document.getElementById("c").value;
+  document.getElementById("c").click();
+});

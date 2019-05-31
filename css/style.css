@@ -3,7 +3,11 @@ body {
     margin-top: 20px;
     display: inline-flex;
     background-color: darkgray;
-    position: relative
+    position: relative;
+    background: url(https://images.pexels.com/photos/1571174/pexels-photo-1571174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center fixed;
+    background-size: cover
+    
+
 }
 
 .toolbox {
@@ -14,7 +18,8 @@ body {
     background-color: grey;
     padding: 20px;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    opacity: 0.8;
 }
 
 #canvas {
@@ -84,8 +89,19 @@ i {
     margin: 5px
 }
 input {
+    width: fit-content;
+}
+#height, #width{
     width: 40px;
 }
 #clear_All{
     text-align: center
 }
+.hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
